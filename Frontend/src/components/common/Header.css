@@ -1,0 +1,32 @@
+.navbar {
+  height: 50px;
+  background: #595ee3;
+}
+
+.navbar {
+  display: flex;
+  justify-content: end;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  width: 230px;
+  justify-content: space-around;
+}
+
+
+.navbar__link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  opacity: .7;
+  transition: .4s all ease;
+  font-size: 18px;
+}
+
+
+.navbar__link-btn:hover {
+  opacity: 1;
+}
