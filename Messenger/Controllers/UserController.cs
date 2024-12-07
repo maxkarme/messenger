@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Contracts.DtoModels;
 using Contracts.BindingModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Messenger.Controllers
 {
@@ -42,6 +43,20 @@ namespace Messenger.Controllers
             }
 
             return Ok();
+        }
+
+        [Authorize]
+        [HttpGet("get-user-info")]
+        public async Task<UserInfoDTO?> getUserInfo()
+        {
+            return await userService.GetUserById(UserId);
+        }
+
+        [Authorize]
+        [HttpPost("update-user")]
+        public async Task updateUser([FromBody] UserInfoDTO userModel)
+        {
+            await userService.UpdateUser(userModel, UserId);
         }
     }
 }

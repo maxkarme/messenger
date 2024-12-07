@@ -2,8 +2,10 @@ import { useState } from "react";
 import "./Login.css"
 import "./Form.css"
 import { useNavigate } from "react-router";
+import { useQueryClient } from "react-query";
 
 export default function Login() {
+    const queryClient = useQueryClient();
     const navigate = useNavigate();
     const [formState, changeFormState] = useState({
         login: "",
@@ -26,6 +28,7 @@ export default function Login() {
             localStorage.setItem("token", result);
             localStorage.setItem("user", formState.login);
             window.dispatchEvent(new Event("storage"));
+            queryClient.invalidateQueries(["userInfo"]);
             navigate("/");
         } else {
             localStorage.removeItem("token");

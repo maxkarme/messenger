@@ -7,5 +7,6 @@ namespace Contracts.Storages
     {
         Task<UserInfoDTO?> GetByLogin(string login);
         Task CreateOrUpdateUser(UserInfoDTO user);
+        Task<UserInfoDTO?> GetById(int userId);
     }
 }

@@ -25,6 +25,16 @@ namespace DatabaseImplement.Storages
             await db.SaveChangesAsync();
         }
 
+        public async Task<UserInfoDTO?> GetById(int userId)
+        {
+            using Database db = new Database();
+
+            return await db.Users
+                .Where(x => x.Id == userId)
+                .Select(x => x.GetModel())
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<UserInfoDTO?> GetByLogin(string login)
         {
             using Database db = new Database();

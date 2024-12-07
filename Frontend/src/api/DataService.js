@@ -7,8 +7,7 @@ export default class DataService {
         "Authorization": "Bearer " + localStorage.getItem("token")
       }
     });
-    let res = await data.json();
-    return res;
+    return data;
   }
 
   static post(url, data) {

@@ -4,6 +4,6 @@
     {
         string Name { get; }
         string Login {  get; }
-        string Password { get; }
+        string? Password { get; }
     }
 }

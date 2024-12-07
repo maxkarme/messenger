@@ -9,5 +9,8 @@ namespace DatabaseImplement.Models
 
         [Required]
         public string Text { get; set; } = string.Empty;
+
+        [Required]
+        public DateTime date { get; set; } = DateTime.Now;
     }
 }

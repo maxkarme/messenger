@@ -1,7 +1,6 @@
 ﻿using Contracts.BindingModels;
 using Contracts.DtoModels;
 using Contracts.Storages;
-using DatabaseImplement.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -20,9 +19,16 @@ namespace Messenger.Services
             this.authOptions = authOptions.Value;
         }
 
+        public async Task<UserInfoDTO?> GetUserById(int userId)
+        {
+            var user = await userStorage.GetById(userId);
+            user.Password = null;
+            return user;
+        }
+
         public async Task<string?> CheckAuth(UserLoginDTO userLoginDTO)
         {
-            UserInfoDTO user = await userStorage.GetByLogin(userLoginDTO.Login);
+            UserInfoDTO? user = await userStorage.GetByLogin(userLoginDTO.Login);
 
             if (user == null || user.Password != userLoginDTO.Password)
             {
@@ -41,6 +47,19 @@ namespace Messenger.Services
             await userStorage.CreateOrUpdateUser(userInfoDTO);
 
             return GenerateToken(userInfoDTO);
+        }
+
+        public async Task UpdateUser(UserInfoDTO userInfoDTO, int userId)
+        {
+            var user = await userStorage.GetById(userId);
+            if(userInfoDTO.Password == null)
+            {
+                userInfoDTO.Password = user.Password;
+            }
+
+            userInfoDTO.Id = userId;
+
+            await userStorage.CreateOrUpdateUser(userInfoDTO);
         }
 
         private string GenerateToken(UserInfoDTO user)
