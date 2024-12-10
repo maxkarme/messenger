@@ -62,6 +62,19 @@ namespace Messenger.Services
             await userStorage.CreateOrUpdateUser(userInfoDTO);
         }
 
+        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter)
+        {
+            var users = await userStorage.GetByFilter(filter);
+
+            users.Select(x =>
+            {
+                x.Password = null;
+                return x;
+            });
+
+            return users;
+        }
+
         private string GenerateToken(UserInfoDTO user)
         {
             var securityKey = authOptions.GetSymmetricSecurityKey();

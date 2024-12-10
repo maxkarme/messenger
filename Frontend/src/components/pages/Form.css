@@ -1,15 +1,15 @@
-.login {
+.form {
     width: 50%;
     margin: 0 auto;
     text-align: center;
     margin-top: 30px;
 }
 
-.login__title {
+.form__title {
     font-family: sans-serif;
 }
 
-.login__span {
+.form__span {
     font-family: sans-serif;
     font-size: 14px;
     position: absolute;
@@ -20,7 +20,7 @@
     color: #646464;
 }
 
-.login__input {
+.form__input {
     box-sizing: border-box;
     width: 250px;
     font-size: 20px;
@@ -30,11 +30,11 @@
     border: 1px solid black;
 }
 
-.login__input:focus {
+.form__input:focus {
     outline: none;
 }
 
-.login__submit {
+.form__submit {
     width: 250px;
     font-size: 16px;
     padding: 7px 10px;
@@ -46,6 +46,6 @@
     color: white;
 }
 
-.login__submit:hover {
+.form__submit:hover {
     opacity: 1;
 }

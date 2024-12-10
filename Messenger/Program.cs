@@ -18,8 +18,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<ChatService>();
+builder.Services.AddTransient<MessageService>();
+builder.Services.AddSingleton<MessageQueueService>();
 
 builder.Services.AddTransient<IUserStorage, UserStorage>();
+builder.Services.AddTransient<IChatStorage, ChatStorage>();
+builder.Services.AddTransient<IMessageStorage, MessageStorage>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   width: 230px;
-  justify-content: space-around;
+  justify-content: end;
 }
 
 
@@ -24,9 +24,18 @@
   opacity: .7;
   transition: .4s all ease;
   font-size: 18px;
+  margin-right: 10px;
 }
 
 
 .navbar__link-btn:hover {
   opacity: 1;
+}
+
+.user__navlink {
+  text-decoration: none;
+}
+
+.nav__exit {
+  color: #ac0e0e;
 }

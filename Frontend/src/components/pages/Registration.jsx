@@ -51,26 +51,26 @@ export default function Registration() {
     }
 
     return (
-        <div className="login">
-            <h2 className="login__title">Регистрация</h2>
-            <form className="login__form" onSubmit={submitHandler}>
-                <div className="login__input-block">
-                    <span className="login__span">имя</span>
-                    <input type="text" name="name" className="login__input" autoComplete="off" value={formState.name} onChange={changeHandler}/>
+        <div className="form">
+            <h2 className="form__title">Регистрация</h2>
+            <form className="form__form" onSubmit={submitHandler}>
+                <div className="form__input-block">
+                    <span className="form__span">имя</span>
+                    <input type="text" name="name" className="form__input" autoComplete="off" value={formState.name} onChange={changeHandler}/>
                 </div>
-                <div className="login__input-block">
-                    <span className="login__span">логин</span>
-                    <input type="text" name="login" className="login__input" autoComplete="off" value={formState.login} onChange={changeHandler}/>
+                <div className="form__input-block">
+                    <span className="form__span">логин</span>
+                    <input type="text" name="login" className="form__input" autoComplete="off" value={formState.login} onChange={changeHandler}/>
                 </div>
-                <div className="login__input-block">
-                    <span className="login__span">пароль</span>
-                    <input type="password" name="password" className="login__input" autoComplete="off" value={formState.password} onChange={changeHandler}/>
+                <div className="form__input-block">
+                    <span className="form__span">пароль</span>
+                    <input type="password" name="password" className="form__input" autoComplete="off" value={formState.password} onChange={changeHandler}/>
                 </div>
-                <div className="login__input-block">
-                    <span className="login__span">подтверждение пароля</span>
-                    <input type="password" name="accessPassword" className="login__input" autoComplete="off" value={formState.accessPassword} onChange={changeHandler}/>
+                <div className="form__input-block">
+                    <span className="form__span">подтверждение пароля</span>
+                    <input type="password" name="accessPassword" className="form__input" autoComplete="off" value={formState.accessPassword} onChange={changeHandler}/>
                 </div>
-                <button className="login__submit">Зарегистрироваться</button>
+                <button className="form__submit">Зарегистрироваться</button>
             </form>
         </div>
     )

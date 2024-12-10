@@ -38,10 +38,10 @@ export default function Header() {
         }
         {!isError && !isLoading && data != null &&
           <>
-            <NavLink to="user">
-              <div>{data.name}</div>
+            <NavLink to="user" className="user__navlink">
+              <button className="navbar__link-btn user__text">{data.name}</button>
             </NavLink>
-            <button onClick={handlelogout}>exit</button>
+            <button className="navbar__link-btn nav__exit" onClick={handlelogout}>Выход</button>
           </>
         }
       </div>

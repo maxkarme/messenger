@@ -53,6 +53,13 @@ namespace Messenger.Controllers
         }
 
         [Authorize]
+        [HttpPost("get-by-filter")]
+        public async Task<List<UserInfoDTO>> getByFilter([FromBody] UserSearchDTO filter)
+        {
+            return await userService.GetByFilter(filter);
+        }
+
+        [Authorize]
         [HttpPost("update-user")]
         public async Task updateUser([FromBody] UserInfoDTO userModel)
         {

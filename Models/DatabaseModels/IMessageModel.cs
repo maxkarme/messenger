@@ -3,6 +3,6 @@
     public interface IMessageModel
     {
         string Text { get; }
-        DateTime date { get; }
+        DateTime Date { get; }
     }
 }

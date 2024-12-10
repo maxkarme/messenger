@@ -1,0 +1,14 @@
+.left {
+    min-width: 300px;
+    height: calc(100vh - 50px);
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.right {
+    flex-grow: 1;
+}
+
+.main__wrap {
+    display: flex;
+}

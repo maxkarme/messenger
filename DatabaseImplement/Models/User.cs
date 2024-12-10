@@ -1,6 +1,7 @@
 ﻿using Contracts.BindingModels;
 using Models.DatabaseModels;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseImplement.Models
 {
@@ -17,13 +18,22 @@ namespace DatabaseImplement.Models
         [Required]
         public string Password { get; set; } = string.Empty;
 
+        [ForeignKey("UserId")]
+        public virtual List<UserChat> Chats { get; set; } = new();
+
         public User() { }
 
-        public User(UserInfoDTO user)
+        public User(UserInfoDTO user, Database context)
         {
             Name = user.Name;
             Login = user.Login;
             Password = user.Password;
+            Chats = user.Chats.Select(x =>
+                new UserChat
+                {
+                    Chat = context.Chats.First(y => y.Id == x.Id)
+                }
+            ).ToList();
         }
 
         public void Update(UserInfoDTO user)
@@ -31,6 +41,7 @@ namespace DatabaseImplement.Models
             Name = user.Name;
             Login = user.Login;
             Password = user.Password;
+
         }
 
         public UserInfoDTO GetModel()

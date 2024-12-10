@@ -41,18 +41,18 @@ export default function Login() {
     }
 
     return (
-        <div className="login">
-            <h2 className="login__title">Вход</h2>
-            <form className="login__form" onSubmit={submitHandler}>
-                <div className="login__input-block">
-                    <span className="login__span"> логин</span>
-                    <input type="text" name="login" className="login__input" autoComplete="off" onChange={changeHandler} value={formState.login}/>
+        <div className="form">
+            <h2 className="form__title">Вход</h2>
+            <form className="form__form" onSubmit={submitHandler}>
+                <div className="form__input-block">
+                    <span className="form__span"> логин</span>
+                    <input type="text" name="login" className="form__input" autoComplete="off" onChange={changeHandler} value={formState.login}/>
                 </div>
-                <div className="login__input-block">
-                    <span className="login__span">пароль</span>
-                    <input type="password" name="password" className="login__input" autoComplete="off" onChange={changeHandler} value={formState.password}/>
+                <div className="form__input-block">
+                    <span className="form__span">пароль</span>
+                    <input type="password" name="password" className="form__input" autoComplete="off" onChange={changeHandler} value={formState.password}/>
                 </div>
-                <button className="login__submit">Войти</button>
+                <button className="form__submit">Войти</button>
             </form>
         </div>
     )

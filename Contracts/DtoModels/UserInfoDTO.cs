@@ -1,4 +1,5 @@
-﻿using Models.DatabaseModels;
+﻿using Contracts.DtoModels;
+using Models.DatabaseModels;
 
 namespace Contracts.BindingModels
 {
@@ -10,5 +11,7 @@ namespace Contracts.BindingModels
         public string Login { get; set; } = string.Empty;
 
         public string? Password { get; set; }
+
+        public List<ChatDTO> Chats { get; set; } = new();
     }
 }

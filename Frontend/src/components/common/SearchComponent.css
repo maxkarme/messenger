@@ -1,0 +1,35 @@
+.search__input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 7px 5px;
+}
+
+.search__input:focus {
+    outline: none;
+}
+
+.search__result {
+    position: absolute;
+    box-sizing: border-box;
+    background: white;
+    width: 100%;
+    z-index: 1000;
+}
+
+.search__item {
+    padding: 10px;
+    display: flex;
+    background: #9e9d9d4b;
+    cursor: pointer;
+}
+
+.search__item:hover {
+    background: #9e9d9da5;
+}
+
+.search__item-text {
+    margin: 0;
+    font-family: sans-serif;
+}

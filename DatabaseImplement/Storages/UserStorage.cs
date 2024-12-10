@@ -2,6 +2,7 @@
 using Contracts.BindingModels;
 using Contracts.Storages;
 using DatabaseImplement.Models;
+using Contracts.DtoModels;
 
 namespace DatabaseImplement.Storages
 {
@@ -19,10 +20,21 @@ namespace DatabaseImplement.Storages
             }
             else
             {
-                db.Users.Add(new User(user));
+                db.Users.Add(new User(user, db));
             }
 
             await db.SaveChangesAsync();
+        }
+
+        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter)
+        {
+            using Database db = new Database();
+
+            return await db.Users
+                .Where(x =>
+                    (filter.Name == null || x.Name.Contains(filter.Name)) &&
+                    (filter.Login == null || x.Login.Contains(filter.Login)))
+                .Select(x => x.GetModel()).ToListAsync();
         }
 
         public async Task<UserInfoDTO?> GetById(int userId)
