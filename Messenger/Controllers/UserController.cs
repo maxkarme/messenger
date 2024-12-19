@@ -54,9 +54,9 @@ namespace Messenger.Controllers
 
         [Authorize]
         [HttpPost("get-by-filter")]
-        public async Task<List<UserInfoDTO>> getByFilter([FromBody] UserSearchDTO filter)
+        public async Task<List<UserInfoDTO>> GetByFilter([FromBody] UserSearchDTO filter, int page, int size)
         {
-            return await userService.GetByFilter(filter);
+            return await userService.GetByFilter(filter, page, size);
         }
 
         [Authorize]

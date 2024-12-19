@@ -26,5 +26,10 @@ namespace Messenger.Services
         {
             return await chatStorage.GetUserChats(userId);
         }
+
+        public async Task<List<MessageDTO>> SearchMesasgesByUser(int userId, int chatId, string text, int page, int size)
+        {
+            return await chatStorage.SearchMessageByUser(userId, chatId, text, page, size);
+        }
     }
 }

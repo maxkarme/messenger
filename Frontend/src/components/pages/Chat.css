@@ -105,3 +105,12 @@
 .chat__message_my .chat__message-text {
     background: #82f86a;
 }
+
+
+.chat__search_wrap {
+    box-sizing: border-box;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}

@@ -54,5 +54,27 @@ namespace DatabaseImplement.Storages
                 .Select(x => x.GetModel())
                 .ToListAsync();
         }
+
+        public async Task<List<MessageDTO>> SearchMessageByUser(int userId, int chatId, string text, int page, int size)
+        {
+            using Database db = new Database();
+
+            var chat = await db.Chats
+                .Include(x => x.Messages)
+                .ThenInclude(x => x.User)
+                .Include(x => x.Users)
+                .FirstOrDefaultAsync(x =>
+                    x.Id == chatId && x.Users.Select(y => y.UserId).Contains(userId)
+                );
+
+            if (chat == null) return [];
+
+            return chat.Messages
+                .Where(x => x.Text.Contains(text))
+                .Select(x => x.GetModel())
+                .Skip(page * size)
+                .Take(size)
+                .ToList();
+        }
     }
 }

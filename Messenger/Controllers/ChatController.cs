@@ -40,6 +40,11 @@ namespace Messenger.Controllers
             await chatService.AddUsers(chatId, users); 
         }
 
-
+        [Authorize]
+        [HttpGet("search-messages")]
+        public async Task<List<MessageDTO>> SearchMessages(int chatId, string text, int page, int size)
+        {
+            return await chatService.SearchMesasgesByUser(UserId, chatId, text, page, size);
+        }
     }
 }

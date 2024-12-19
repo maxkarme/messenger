@@ -2,9 +2,22 @@ import { useEffect, useState } from "react";
 import "./Chat.css";
 import DataService from "../../api/DataService";
 import ChatInput from "./ChatInput";
+import SearchComponent from "../common/SearchComponent";
+
+
+
 
 export default function Chat(props) {
     let [userId, setUserId] = useState(0);
+
+    async function getMessages(filter, page, size) {
+        if(filter == "") return [];
+        let res =  await DataService.readAll(`/chat/search-messages?chatId=${props.chat.id}&text=${filter}&page=${page}&size=${size}`);
+    
+        res = await res.json();
+    
+        return res;
+    }
 
     useEffect(() => {
         DataService.readAll("/user/get-user-info")
@@ -56,6 +69,9 @@ export default function Chat(props) {
         <div className="chat chat_selected">
             <div className="chat__header">
                 <h3 className="chat__title">{props.chat.name}</h3>
+                <div className="chat__search_wrap">
+                    <SearchComponent getResult={getMessages} onSelect={() => {}}/>
+                </div>
             </div>
             <div className="chat__messages">
                 <div></div>

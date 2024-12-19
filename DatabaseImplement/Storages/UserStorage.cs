@@ -26,7 +26,7 @@ namespace DatabaseImplement.Storages
             await db.SaveChangesAsync();
         }
 
-        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter)
+        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter, int page, int size)
         {
             using Database db = new Database();
 
@@ -34,7 +34,10 @@ namespace DatabaseImplement.Storages
                 .Where(x =>
                     (filter.Name == null || x.Name.Contains(filter.Name)) &&
                     (filter.Login == null || x.Login.Contains(filter.Login)))
-                .Select(x => x.GetModel()).ToListAsync();
+                .Select(x => x.GetModel())
+                .Skip(page * size)
+                .Take(size)
+                .ToListAsync();
         }
 
         public async Task<UserInfoDTO?> GetById(int userId)

@@ -62,9 +62,9 @@ namespace Messenger.Services
             await userStorage.CreateOrUpdateUser(userInfoDTO);
         }
 
-        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter)
+        public async Task<List<UserInfoDTO>> GetByFilter(UserSearchDTO filter, int page, int size)
         {
-            var users = await userStorage.GetByFilter(filter);
+            var users = await userStorage.GetByFilter(filter, page, size);
 
             users.Select(x =>
             {

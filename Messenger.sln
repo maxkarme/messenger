@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{6E5B0D35-2244-4940-9405-4BEE9DA8F3EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{6E5B0D35-2244-4940-9405-4BEE9DA8F3EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseImplement", "DatabaseImplement\DatabaseImplement.csproj", "{1399B4F3-752E-4806-A9EE-16790996ADF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseImplement", "DatabaseImplement\DatabaseImplement.csproj", "{1399B4F3-752E-4806-A9EE-16790996ADF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger", "Messenger\Messenger.csproj", "{E020897B-8641-43B9-808E-5A5CF49E9523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger", "Messenger\Messenger.csproj", "{E020897B-8641-43B9-808E-5A5CF49E9523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{074E335E-86D1-421B-9CF6-CA72CB0EE199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{074E335E-86D1-421B-9CF6-CA72CB0EE199}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

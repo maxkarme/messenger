@@ -59,8 +59,8 @@ export default function ChatList(props) {
         window.location.reload();
     }
 
-    async function getParticipants(filter) {
-        let res =  await DataService.post("/user/get-by-filter", {
+    async function getParticipants(filter, page, size) {
+        let res =  await DataService.post(`/user/get-by-filter?page=${page}&size=${size}`, {
             name: filter,
             login: null
         });
